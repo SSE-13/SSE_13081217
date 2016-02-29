@@ -19,7 +19,12 @@
 *[网址]: <http://weibo.com/>  "新浪微博"*
 
 ##代码片段：
-
+ ```javascript
+ var s = "Hello World";
+ alter(s);
+ ```
+ 
+ 
 
 
 
