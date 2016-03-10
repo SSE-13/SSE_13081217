@@ -59,11 +59,12 @@ class Rect extends DisplayObject {
 }
 
 class TextField extends DisplayObject {
+    txt = "xxx"; 
 
     render(context: CanvasRenderingContext2D) {
         context.font = "20px Arial";
         context.fillStyle = '#000000';
-        context.fillText('HelloWorld', 0, 20);
+        context.fillText(this.txt, 0, 20);
     }
 }
 
@@ -119,14 +120,15 @@ rect2.color = '#00FFFF'
 
 var text = new TextField();
 text.x = 10;
+text.txt = "FLYING BALLOON";
 
 var bitmap = new Bitmap();
-bitmap.source = 'wander-icon.jpg';
+bitmap.source = 'bacground.jpg';
 
 //渲染队列
-var renderQueue = [rect, rect2, text];
+var renderQueue = [bitmap,rect, rect2, text];
 //资源加载列表
-var imageList = ['wander-icon.jpg'];
+var imageList = ['bacground.jpg'];
 
 //先加载资源，加载成功之后执行渲染队列
 loadResource(imageList, function() {
