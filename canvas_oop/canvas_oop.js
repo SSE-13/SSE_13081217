@@ -62,7 +62,7 @@ var TextField = (function (_super) {
         this.txt = "xxx";
     }
     TextField.prototype.render = function (context) {
-        context.font = "20px Arial";
+        context.font = "72px Berlin Sans FB";
         context.fillStyle = '#000000';
         context.fillText(this.txt, 0, 20);
     };
@@ -108,7 +108,8 @@ rect2.y = 200;
 rect2.rotation = Math.PI / 8;
 rect2.color = '#00FFFF';
 var text = new TextField();
-text.x = 10;
+text.x = 200;
+text.y = 50;
 text.txt = "FLYING BALLOON";
 var bitmap = new Bitmap();
 bitmap.source = 'bacground.jpg';
