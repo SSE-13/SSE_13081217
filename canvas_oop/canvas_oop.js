@@ -60,9 +60,10 @@ var TextField = (function (_super) {
     function TextField() {
         _super.apply(this, arguments);
         this.txt = "xxx";
+        this.tt = "72px Berlin Sans FB";
     }
     TextField.prototype.render = function (context) {
-        context.font = "72px Berlin Sans FB";
+        context.font = this.tt;
         context.fillStyle = '#000000';
         context.fillText(this.txt, 0, 20);
     };
@@ -106,18 +107,32 @@ var rect2 = new Rect();
 rect2.width = 150;
 rect2.height = 50;
 rect2.x = 600;
-rect2.y = 300;
+rect2.y = 230;
 rect2.color = '#719090';
 var text = new TextField();
 text.x = 200;
 text.y = 50;
 text.txt = "FLYING BALLOON";
+var text1 = new TextField();
+text1.x = 640;
+text1.y = 165;
+text1.tt = "36px Berlin Sans FB";
+text1.txt = "PLAY";
+var text2 = new TextField();
+text2.x = 630;
+text2.y = 250;
+text2.tt = "36px Berlin Sans FB";
+text2.txt = "Options";
 var bitmap = new Bitmap();
 bitmap.source = 'bacground.jpg';
+var bitmap1 = new Bitmap();
+bitmap1.source = 'balloon.png';
+bitmap1.x = 100;
+bitmap1.y = 100;
 //渲染队列
-var renderQueue = [bitmap, rect, rect2, text];
+var renderQueue = [bitmap, rect, rect2, text, text1, text2, bitmap1];
 //资源加载列表
-var imageList = ['bacground.jpg'];
+var imageList = ['bacground.jpg', 'balloon.png'];
 //先加载资源，加载成功之后执行渲染队列
 loadResource(imageList, function () {
     drawQueue(renderQueue);
