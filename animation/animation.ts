@@ -13,6 +13,8 @@ const BOUNCE = 0.95;
 
 const min_v = 0.5;
 
+const f = 0.3;
+
 
 
 /**
@@ -75,6 +77,11 @@ class Body {
         
         if(this.isgrounded) {
             
+            this.vy = 0;
+            this.vx -= this.vx * f;
+            this.x += duringTime * this.vx;
+            this.y = BOUNDS_BOTTOM - this.height;
+
         }
 
         //反弹
