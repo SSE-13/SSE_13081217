@@ -13,6 +13,8 @@ const BOUNCE = 0.95;
 
 const min_v = 0.5;
 
+
+
 /**
  * 计时器系统
  */
@@ -45,7 +47,9 @@ class Ticker {
 
 
 class Body {
-
+    
+    isgrounded = false;
+     
     vx = 0;
     vy = 0;
     x = 0;
@@ -61,10 +65,13 @@ class Body {
 
     public onTicker(duringTime) {
         
-
+        if(!this.isgrounded) {
+            
         this.vy += duringTime * GRAVITY;
         this.x += duringTime * this.vx;
         this.y += duringTime * this.vy;
+        
+        }
 
         //反弹
         if (this.y + this.height > BOUNDS_BOTTOM) {
