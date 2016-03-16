@@ -88,8 +88,9 @@ class Body {
         if (this.y + this.height > BOUNDS_BOTTOM && this.vy >= 0) {
             this.vy = -BOUNCE * this.vy;
             
-            if (Math.abs(this.vy) <= min_v && this.vy + GRAVITY * duringTime > 0)
+            if (Math.abs(this.vy) <= min_v && this.vy + GRAVITY * duringTime > 0){
             this.isgrounded = true;
+            }
         }
         
         if (this.y < 0){
