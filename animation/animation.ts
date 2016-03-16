@@ -11,6 +11,8 @@ const BOUNDS_RIGHT = 400;
 
 const BOUNCE = 0.95;
 
+const min_v = 0.5;
+
 /**
  * 计时器系统
  */
@@ -58,6 +60,7 @@ class Body {
     }
 
     public onTicker(duringTime) {
+        
 
         this.vy += duringTime * GRAVITY;
         this.x += duringTime * this.vx;
