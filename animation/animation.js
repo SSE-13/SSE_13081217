@@ -6,6 +6,7 @@ var BOUNDS_BOTTOM = 400;
 var BOUNDS_LEFT = 0;
 var BOUNDS_RIGHT = 400;
 var BOUNCE = 0.95;
+var min_v = 0.5;
 /**
  * 计时器系统
  */
@@ -35,6 +36,7 @@ var Ticker = (function () {
 }());
 var Body = (function () {
     function Body(displayObject) {
+        this.isgrounded = false;
         this.vx = 0;
         this.vy = 0;
         this.x = 0;
@@ -44,12 +46,21 @@ var Body = (function () {
         this.displayObject = displayObject;
     }
     Body.prototype.onTicker = function (duringTime) {
-        this.vy += duringTime * GRAVITY;
-        this.x += duringTime * this.vx;
-        this.y += duringTime * this.vy;
+        if (!this.isgrounded) {
+            this.vy += duringTime * GRAVITY;
+            this.x += duringTime * this.vx;
+            this.y += duringTime * this.vy;
+        }
+        if (this.isgrounded) {
+        }
         //反弹
-        if (this.y + this.height > BOUNDS_BOTTOM) {
+        if (this.y + this.height > BOUNDS_BOTTOM && this.vy >= 0) {
             this.vy = -BOUNCE * this.vy;
+            if (Math.abs(this.vy) <= min_v && this.vy + GRAVITY * duringTime > 0)
+                this.isgrounded = true;
+        }
+        if (this.y < 0) {
+            this.vy = -BOUNCE + this.vy;
         }
         //TODO： 左右越界反弹
         //根据物体位置更新显示对象属性
