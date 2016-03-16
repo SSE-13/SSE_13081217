@@ -90,7 +90,7 @@ var body = new Body(rect);
 body.width = rect.width;
 body.height = rect.height;
 body.vx = 10; //需要保证 vx 在 0-50的范围内行为正常
-body.vy = 35; //需要保证 vy 在 0-50的范围内行为正常
+body.vy = 40; //需要保证 vy 在 0-50的范围内行为正常
 var renderCore = new RenderCore();
 var ticker = new Ticker();
 renderCore.start([rect]);
