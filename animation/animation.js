@@ -7,7 +7,7 @@ var BOUNDS_LEFT = 0;
 var BOUNDS_RIGHT = 400;
 var BOUNCE = 0.95;
 var min_v = 0.5;
-var f = 0.8;
+var f = 0.3;
 /**
  * 计时器系统
  */
@@ -89,8 +89,8 @@ rect.color = '#FF0000';
 var body = new Body(rect);
 body.width = rect.width;
 body.height = rect.height;
-body.vx = 5; //需要保证 vx 在 0-50的范围内行为正常
-body.vy = 0; //需要保证 vy 在 0-50的范围内行为正常
+body.vx = 10; //需要保证 vx 在 0-50的范围内行为正常
+body.vy = 35; //需要保证 vy 在 0-50的范围内行为正常
 var renderCore = new RenderCore();
 var ticker = new Ticker();
 renderCore.start([rect]);

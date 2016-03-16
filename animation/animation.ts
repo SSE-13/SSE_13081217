@@ -13,7 +13,7 @@ const BOUNCE = 0.95;
 
 const min_v = 0.5;
 
-const f = 0.8;
+const f = 0.3;
 
 
 
@@ -125,8 +125,8 @@ rect.color = '#FF0000';
 var body = new Body(rect);
 body.width = rect.width;
 body.height = rect.height;
-body.vx = 5;//需要保证 vx 在 0-50的范围内行为正常
-body.vy = 0;//需要保证 vy 在 0-50的范围内行为正常
+body.vx = 10;//需要保证 vx 在 0-50的范围内行为正常
+body.vy = 35;//需要保证 vy 在 0-50的范围内行为正常
 
 
 var renderCore = new RenderCore();
