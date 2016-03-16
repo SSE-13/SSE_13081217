@@ -13,7 +13,7 @@ const BOUNCE = 0.95;
 
 const min_v = 0.5;
 
-const f = 0.3;
+const f = 0.8;
 
 
 
