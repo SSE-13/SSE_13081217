@@ -23,7 +23,6 @@ var game;
             this.grid.setWalkable(5, 5, false);
         }
         WorldMap.prototype.render = function (context) {
-            //context.fillStyle = '#0000FF';
             context.strokeStyle = '#FF0000';
             context.beginPath();
             for (var i = 0; i < NUM_COLS; i++) {
@@ -39,11 +38,9 @@ var game;
                     context.rect(i * GRID_PIXEL_WIDTH, j * GRID_PIXEL_HEIGHT, GRID_PIXEL_WIDTH, GRID_PIXEL_HEIGHT);
                     context.fill();
                     context.stroke();
-                    context.fillRect(i * GRID_PIXEL_WIDTH, j * GRID_PIXEL_HEIGHT, GRID_PIXEL_WIDTH, GRID_PIXEL_HEIGHT);
                     context.closePath();
                 }
             }
-            context.closePath();
         };
         return WorldMap;
     }(DisplayObject));

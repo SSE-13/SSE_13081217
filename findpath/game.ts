@@ -28,7 +28,6 @@ module game {
         }
 
         render(context: CanvasRenderingContext2D) {
-            //context.fillStyle = '#0000FF';
             context.strokeStyle = '#FF0000';
             context.beginPath();
             for (var i = 0; i < NUM_COLS; i++) {
@@ -44,15 +43,10 @@ module game {
                      context.rect(i * GRID_PIXEL_WIDTH, j * GRID_PIXEL_HEIGHT, GRID_PIXEL_WIDTH, GRID_PIXEL_HEIGHT);
                      context.fill();
                     context.stroke();
-                    context.fillRect(i * GRID_PIXEL_WIDTH, j * GRID_PIXEL_HEIGHT, GRID_PIXEL_WIDTH, GRID_PIXEL_HEIGHT);
                     context.closePath();
-                   // context.clearRect
                 }
             }
-            context.closePath();
-
         }
-
     }
 
     export class BoyShape extends DisplayObject {
