@@ -35,6 +35,7 @@ module game {
                     if(this.grid.getNode(i,j).walkable == false){
                         context.fillStyle = '#000000'; 
                         context.fillRect(i * GRID_PIXEL_WIDTH, j * GRID_PIXEL_HEIGHT, GRID_PIXEL_WIDTH, GRID_PIXEL_HEIGHT);
+                        context.fillRect(i * GRID_PIXEL_WIDTH, (j-1) * GRID_PIXEL_HEIGHT, GRID_PIXEL_WIDTH, GRID_PIXEL_HEIGHT);
                         context.beginPath();
                      }
                      if(this.grid.getNode(i,j).walkable == true){
@@ -51,6 +52,7 @@ module game {
     }
 
     export class BoyShape extends DisplayObject {
+        
         render(context: CanvasRenderingContext2D) {
             context.beginPath()
             context.fillStyle = '#00FFFF';
@@ -61,6 +63,11 @@ module game {
     }
 
     export class BoyBody extends Body {
+        
+        x1 = new Array();
+        y1 = new Array();
+        l = 1;
+        
 
 
         public run(grid) {
@@ -70,11 +77,16 @@ module game {
             findpath.setHeurisitic(findpath.diagonal);
             var result = findpath.findPath(grid);
             var path = findpath._path;
+            for(var i = 0; i< path.length;i++){
+                this.x1[i] = path[i].x;
+                this.y1[i] = path[i].y;
+            }
             console.log(path);
             console.log(grid.toString());
         }
 
         public onTicker(duringTime) {
+
 
         }
     }
