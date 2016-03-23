@@ -28,6 +28,7 @@ module game {
         }
 
         render(context: CanvasRenderingContext2D) {
+            
             context.strokeStyle = '#FF0000';
             context.beginPath();
             for (var i = 0; i < NUM_COLS; i++) {
