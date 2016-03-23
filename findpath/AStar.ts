@@ -8,7 +8,7 @@ module astar {
         f: number;
         g: number;
         h: number;
-        walkable: Boolean = true;
+        public walkable: Boolean = true;
         parent: Node;
         costMultiplier: number = 1.0;
         visited: Boolean = false;
