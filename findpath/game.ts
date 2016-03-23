@@ -41,11 +41,10 @@ module game {
                      if(this.grid.getNode(i,j).walkable == true){
                          context.fillStyle = '#0000FF';
                          context.rect(i * GRID_PIXEL_WIDTH, j * GRID_PIXEL_HEIGHT, GRID_PIXEL_WIDTH, GRID_PIXEL_HEIGHT);
-                         context.fill();
                      }
-
-                     context.stroke();
-                     context.closePath();
+                       context.fill();
+                       context.stroke();
+                       context.closePath();
                 }
             }
         }
@@ -86,8 +85,14 @@ module game {
         }
 
         public onTicker(duringTime) {
-
-
+            
+            if (this.x < NUM_ROWS * GRID_PIXEL_WIDTH && this.y < NUM_COLS * GRID_PIXEL_HEIGHT) {
+                this.x = this.x1[this.l] * GRID_PIXEL_WIDTH;
+                this.y = this.y1[this.l] * GRID_PIXEL_HEIGHT;
+                this.l++;
+                console.log(this.x,this.y);
+                
+            }
         }
     }
 }
