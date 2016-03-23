@@ -35,9 +35,8 @@ var game;
                     if (this.grid.getNode(i, j).walkable == true) {
                         context.fillStyle = '#0000FF';
                         context.rect(i * GRID_PIXEL_WIDTH, j * GRID_PIXEL_HEIGHT, GRID_PIXEL_WIDTH, GRID_PIXEL_HEIGHT);
-                        context.beginPath();
+                        context.fill();
                     }
-                    context.fill();
                     context.stroke();
                     context.closePath();
                 }
