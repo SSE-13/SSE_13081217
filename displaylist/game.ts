@@ -30,7 +30,7 @@ human.addChild(right_arm)
 
 
 var renderCore = new render.RenderCore();
-renderCore.start(humanContainer, ["wander-icon.jpg"]);
+renderCore.start(humanContainer, ["head.png","trunk.png","left_leg.png","right_leg.png","left_arm.png","right_arm.png"]);
 
 
 class HumanBody extends Body {
