@@ -1,6 +1,5 @@
 module game {
 
-
 }
 
 var humanContainer = new render.DisplayObjectContainer();
