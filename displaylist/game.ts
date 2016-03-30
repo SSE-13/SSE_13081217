@@ -5,6 +5,12 @@ module game {
 
 var humanContainer = new render.DisplayObjectContainer();
 var head = new render.Bitmap();
+var trunk = new render.Bitmap();
+var left_leg = new render.Bitmap();
+var right_leg = new render.Bitmap();
+var left_arm = new render.Bitmap();
+var right_arm = new render.Bitmap();
+
 head.source = "wander-icon.jpg";
 humanContainer.addChild(head)
 
