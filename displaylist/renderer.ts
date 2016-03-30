@@ -47,11 +47,10 @@ module render {
                 
                 this.globalMatrix.a = localMatrix.a * parent.globalMatrix.a + localMatrix.b * parent.globalMatrix.c;
                 this.globalMatrix.b = localMatrix.a * parent.globalMatrix.b + localMatrix.b * parent.globalMatrix.d;
-                this.globalMatrix.c = localMatrix.a * parent.globalMatrix.c + localMatrix.c * parent.globalMatrix.d;
-                this.globalMatrix.d = localMatrix.b * parent.globalMatrix.c + localMatrix.d * parent.globalMatrix.d;
+                this.globalMatrix.c = localMatrix.c * parent.globalMatrix.a + localMatrix.d * parent.globalMatrix.c;
+                this.globalMatrix.d = localMatrix.c * parent.globalMatrix.b + localMatrix.d * parent.globalMatrix.d;
                 
-                
-                
+               
                 
                
                         
