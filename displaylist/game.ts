@@ -4,28 +4,29 @@ module game {
 
 var humanContainer = new render.DisplayObjectContainer();
 
+
 var head = new render.Bitmap();
-head.x = 50;
-head.y = -50;
+head.x = -75;
+head.y = -200;
 var trunk = new render.Bitmap();
-trunk.x = 50
-trunk.y = -50;
+trunk.x = -75
+trunk.y = -200;
 var left_leg = new render.Bitmap();
-left_leg.x = 50;
-left_leg.y = -50;
+left_leg.x = -75;
+left_leg.y = -200;
 var right_leg = new render.Bitmap();
-right_leg.x = 50;
-right_leg.y = -50;
+right_leg.x = -75;
+right_leg.y = -200;
 var left_arm = new render.Bitmap();
-left_arm.x = 50;
-left_arm.y = -50;
+left_arm.x = -75;
+left_arm.y = -200;
 var right_arm = new render.Bitmap();
-right_arm.x = 50;
-right_arm.y = -50;
+right_arm.x = -75;
+right_arm.y = -200;
 
 var human = new render.DisplayObjectContainer();
-human.x = -100;
-human.y = -100;
+human.x = -50;
+human.y = -50;
 
 head.source = "head.png";
 trunk.source = "trunk.png";
@@ -63,7 +64,7 @@ var ticker = new Ticker();
 var body = new HumanBody(humanContainer);
 
 body.vx = 2;
-body.y = 100;
+body.y = 200;
 
 ticker.start([body]);
 
