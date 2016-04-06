@@ -73,15 +73,29 @@ ticker.start([body]);
 var eventCore = new events.EventCore();
 eventCore.init();
 
+var judgehead = 0;
+var judgeleg = 0;
+
 var headHitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
     alert (`点击位置为${localPoint.x},${localPoint.y}`);
     return true;
+}
+
+var legHitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
+     alert (`点击位置为${localPoint.x},${localPoint.y}`);
+      return true;
 }
 
 var headOnClick = () => {
     alert("clicked!!");
     //修改 HumanBody 的速度，使其反向移动
 }
+
+var legOnClick = () => {
+    alert("clicked!!");
+    //修改 HumanBody 的速度，使其反向移动
+}
+
 
 eventCore.register(head,headHitTest,headOnClick);
 
