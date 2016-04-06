@@ -5,35 +5,56 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var humanContainer = new render.DisplayObjectContainer();
 var head = new render.Bitmap();
-head.x = 100;
-head.source = "wander-icon.jpg";
-humanContainer.addChild(head);
+head.x = -75;
+head.y = -200;
+var trunk = new render.Bitmap();
+trunk.x = -75;
+trunk.y = -200;
+var left_leg = new render.Bitmap();
+left_leg.x = -75;
+left_leg.y = -200;
+var right_leg = new render.Bitmap();
+right_leg.x = -75;
+right_leg.y = -200;
+var left_arm = new render.Bitmap();
+left_arm.x = -75;
+left_arm.y = -200;
+var right_arm = new render.Bitmap();
+right_arm.x = -75;
+right_arm.y = -200;
+var human = new render.DisplayObjectContainer();
+human.x = -50;
+human.y = -50;
+head.source = "head.png";
+trunk.source = "trunk.png";
+left_leg.source = "left_leg.png";
+right_leg.source = "right_leg.png";
+left_arm.source = "left_arm.png";
+right_arm.source = "right_arm.png";
+humanContainer.addChild(human);
+human.addChild(head);
+human.addChild(trunk);
+human.addChild(left_leg);
+human.addChild(right_leg);
+human.addChild(left_arm);
+human.addChild(right_arm);
 var renderCore = new render.RenderCore();
-renderCore.start(humanContainer, ["wander-icon.jpg"]);
+renderCore.start(humanContainer, ["head.png", "trunk.png", "left_leg.png", "right_leg.png", "left_arm.png", "right_arm.png"]);
 var HumanBody = (function (_super) {
     __extends(HumanBody, _super);
     function HumanBody() {
         _super.apply(this, arguments);
-        this.vx = 5;
     }
     HumanBody.prototype.onTicker = function (duringTime) {
-        this.x = 100; //+= duringTime * this.vx;
-        this.y = 100;
+        this.x += this.vx * duringTime;
+        // this.y = 
+        this.rotation += Math.PI * duringTime;
     };
     return HumanBody;
 }(Body));
 var ticker = new Ticker();
 var body = new HumanBody(humanContainer);
+body.vx = 2;
+body.y = 200;
 ticker.start([body]);
-var eventCore = new events.EventCore();
-eventCore.init();
-var headHitTest = function (localPoint, displayObject) {
-    alert("\u70B9\u51FB\u4F4D\u7F6E\u4E3A" + localPoint.x + "," + localPoint.y);
-    return true;
-};
-var headOnClick = function () {
-    alert("clicked!!");
-    //修改 HumanBody 的速度，使其反向移动
-};
-eventCore.register(head, headHitTest, headOnClick);
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZ2FtZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbImdhbWUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7QUFDQSxJQUFJLGNBQWMsR0FBRyxJQUFJLE1BQU0sQ0FBQyxzQkFBc0IsRUFBRSxDQUFDO0FBQ3pELElBQUksSUFBSSxHQUFHLElBQUksTUFBTSxDQUFDLE1BQU0sRUFBRSxDQUFDO0FBQy9CLElBQUksQ0FBQyxDQUFDLEdBQUcsR0FBRyxDQUFDO0FBQ2IsSUFBSSxDQUFDLE1BQU0sR0FBRyxpQkFBaUIsQ0FBQztBQUNoQyxjQUFjLENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxDQUFDO0FBRzlCLElBQUksVUFBVSxHQUFHLElBQUksTUFBTSxDQUFDLFVBQVUsRUFBRSxDQUFDO0FBQ3pDLFVBQVUsQ0FBQyxLQUFLLENBQUMsY0FBYyxFQUFFLENBQUMsaUJBQWlCLENBQUMsQ0FBQyxDQUFDO0FBRXREO0lBQXdCLDZCQUFJO0lBQTVCO1FBQXdCLDhCQUFJO1FBR3hCLE9BQUUsR0FBVSxDQUFDLENBQUM7SUFRbEIsQ0FBQztJQUxHLDRCQUFRLEdBQVIsVUFBUyxVQUFrQjtRQUN2QixJQUFJLENBQUMsQ0FBQyxHQUFHLEdBQUcsQ0FBQyxDQUFBLDBCQUEwQjtRQUN2QyxJQUFJLENBQUMsQ0FBQyxHQUFHLEdBQUcsQ0FBQztJQUVqQixDQUFDO0lBQ0wsZ0JBQUM7QUFBRCxDQUFDLEFBWEQsQ0FBd0IsSUFBSSxHQVczQjtBQUVELElBQUksTUFBTSxHQUFHLElBQUksTUFBTSxFQUFFLENBQUM7QUFDMUIsSUFBSSxJQUFJLEdBQUcsSUFBSSxTQUFTLENBQUMsY0FBYyxDQUFDLENBQUM7QUFDekMsTUFBTSxDQUFDLEtBQUssQ0FBQyxDQUFDLElBQUksQ0FBQyxDQUFDLENBQUM7QUFHckIsSUFBSSxTQUFTLEdBQUcsSUFBSSxNQUFNLENBQUMsU0FBUyxFQUFFLENBQUM7QUFDdkMsU0FBUyxDQUFDLElBQUksRUFBRSxDQUFDO0FBRWpCLElBQUksV0FBVyxHQUFHLFVBQUMsVUFBcUIsRUFBQyxhQUFrQztJQUN2RSxLQUFLLENBQUUsbUNBQVEsVUFBVSxDQUFDLENBQUMsU0FBSSxVQUFVLENBQUMsQ0FBRyxDQUFDLENBQUM7SUFDL0MsTUFBTSxDQUFDLElBQUksQ0FBQztBQUNoQixDQUFDLENBQUE7QUFFRCxJQUFJLFdBQVcsR0FBRztJQUNkLEtBQUssQ0FBQyxXQUFXLENBQUMsQ0FBQztJQUNuQix5QkFBeUI7QUFDN0IsQ0FBQyxDQUFBO0FBRUQsU0FBUyxDQUFDLFFBQVEsQ0FBQyxJQUFJLEVBQUMsV0FBVyxFQUFDLFdBQVcsQ0FBQyxDQUFDIn0=
+//# sourceMappingURL=game.js.map
