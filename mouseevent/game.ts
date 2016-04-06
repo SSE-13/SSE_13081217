@@ -112,6 +112,15 @@ var legOnClick = () => {
     //修改 HumanBody 的速度，使其反向移动
 }
 
+var secondOnClick = () => {
+    
+    if(judgeleg == 1 && judgehead ==1){
+       body.vx = 3;
+       judgehead == 0;
+       judgeleg == 0;
+    }
+}
+
 
 eventCore.register(head,headHitTest,headOnClick);
 
