@@ -94,11 +94,20 @@ var legHitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
 }
 
 var headOnClick = () => {
+    
+    if(judgehead == 1){
+        body.vx *= -1;
+        }
     alert("clicked!!");
     //修改 HumanBody 的速度，使其反向移动
 }
 
 var legOnClick = () => {
+    
+    if(judgeleg == 1){
+        body.vx = 0;
+        body.rotation = 0;
+    }
     alert("clicked!!");
     //修改 HumanBody 的速度，使其反向移动
 }
