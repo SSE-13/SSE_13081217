@@ -78,11 +78,18 @@ var judgeleg = 0;
 
 var headHitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
     alert (`点击位置为${localPoint.x},${localPoint.y}`);
+     if(localPoint.x > 0  && localPoint.x <= 100 && localPoint.y > 0 && localPoint.y <= 100){
+        judgehead += 1;
+    }
     return true;
 }
 
 var legHitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
      alert (`点击位置为${localPoint.x},${localPoint.y}`);
+     if(localPoint.x > -75 && localPoint.x < 100 && localPoint.y > -75 && localPoint.y < 100 
+    || localPoint.x > -30 && localPoint.x < 145 && localPoint.y > -75 && localPoint.y < 100){
+        judgeleg += 1;
+    }
       return true;
 }
 
