@@ -51,6 +51,7 @@ renderCore.start(humanContainer, ["head.png","trunk.png","left_leg.png","right_l
 class HumanBody extends Body {
     
     vx:number = 5;
+    rota = Math.PI/2;
 
 
     onTicker(duringTime: number) {
@@ -77,7 +78,7 @@ var judgehead = 0;
 var judgeleg = 0;
 
 var headHitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
-    alert (`点击位置为${localPoint.x},${localPoint.y}`);
+    //alert (`点击位置为${localPoint.x},${localPoint.y}`);
      if(localPoint.x > 0  && localPoint.x <= 100 && localPoint.y > 0 && localPoint.y <= 100){
         judgehead += 1;
     }
@@ -85,7 +86,7 @@ var headHitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
 }
 
 var legHitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
-     alert (`点击位置为${localPoint.x},${localPoint.y}`);
+     //alert (`点击位置为${localPoint.x},${localPoint.y}`);
      if(localPoint.x > -75 && localPoint.x < 100 && localPoint.y > -75 && localPoint.y < 100 
     || localPoint.x > -30 && localPoint.x < 145 && localPoint.y > -75 && localPoint.y < 100){
         judgeleg += 1;
@@ -97,8 +98,9 @@ var headOnClick = () => {
     
     if(judgehead == 1){
         body.vx *= -1;
+        body.rota *= -1;
         }
-    alert("clicked!!");
+    //alert("clicked!!");
     //修改 HumanBody 的速度，使其反向移动
 }
 
@@ -107,8 +109,9 @@ var legOnClick = () => {
     if(judgeleg == 1){
         body.vx = 0;
         body.rotation = 0;
+        body.rota = 0;
     }
-    alert("clicked!!");
+    //alert("clicked!!");
     //修改 HumanBody 的速度，使其反向移动
 }
 
@@ -116,6 +119,7 @@ var secondOnClick = () => {
     
     if(judgeleg == 1 && judgehead ==1){
        body.vx = 3;
+       body.rota = Math.PI/2;
        judgehead == 0;
        judgeleg == 0;
     }
