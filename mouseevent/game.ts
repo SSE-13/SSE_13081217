@@ -80,18 +80,20 @@ var judgeleg = 0;
 var headHitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
     //alert (`点击位置为${localPoint.x},${localPoint.y}`);
      if(localPoint.x > 0  && localPoint.x <= 100 && localPoint.y > 0 && localPoint.y <= 100){
-        judgehead += 1;
+        return true;
     }
-    return true;
+    else
+    return false;
 }
 
 var legHitTest = (localPoint:math.Point,displayObject:render.DisplayObject) =>{
      //alert (`点击位置为${localPoint.x},${localPoint.y}`);
      if(localPoint.x > -75 && localPoint.x < 100 && localPoint.y > -75 && localPoint.y < 100 
     || localPoint.x > -30 && localPoint.x < 145 && localPoint.y > -75 && localPoint.y < 100){
-        judgeleg += 1;
+        return true;
     }
-      return true;
+    else
+      return false;
 }
 
 var headOnClick = () => {
@@ -99,6 +101,10 @@ var headOnClick = () => {
     if(judgehead == 1){
         body.vx *= -1;
         body.rota *= -1;
+        if(body.rota == 0){
+            body.vx = 3;
+            body.rota =2;
+        }
         }
     //alert("clicked!!");
     //修改 HumanBody 的速度，使其反向移动
@@ -108,9 +114,6 @@ var legOnClick = () => {
     
     if(judgeleg == 1){
         
-        if(judgehead < 1){
-            judgehead = 1;
-        }
         body.vx = 0;
         body.rotation = 0;
         body.rota = 0;
@@ -121,7 +124,8 @@ var legOnClick = () => {
 
 var secondOnClick = () => {
     
-    if(judgeleg == 1 && judgehead ==1){
+    if(judgeleg == 1){
+       
        body.vx = 3;
        body.rota = Math.PI/2;
        judgehead == 0;
