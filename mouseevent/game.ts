@@ -107,6 +107,10 @@ var headOnClick = () => {
 var legOnClick = () => {
     
     if(judgeleg == 1){
+        
+        if(judgehead < 1){
+            judgehead = 1;
+        }
         body.vx = 0;
         body.rotation = 0;
         body.rota = 0;
@@ -127,6 +131,8 @@ var secondOnClick = () => {
 
 
 eventCore.register(head,headHitTest,headOnClick);
+eventCore.register(left_leg,legHitTest,legOnClick);
+eventCore.register(right_leg,legHitTest,legOnClick);
 
 
 
