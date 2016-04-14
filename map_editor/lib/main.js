@@ -44,6 +44,14 @@ function onTileClick(tile) {
     tile.setWalkable(TileWalkable);
     console.log(tile);
 }
+var container = new render.DisplayObjectContainer();
+var Button = new render.Rect();
+container.addChild(Button);
+Button.x = 100;
+Button.y = 100;
+Button.width = 150;
+Button.height = 100;
+Button.color = "#0000FF";
 var mapData = readFile();
 var renderCore = new render.RenderCore();
 var eventCore = new events.EventCore();
