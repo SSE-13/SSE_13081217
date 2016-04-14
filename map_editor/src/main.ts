@@ -9,13 +9,14 @@ function readFile() {
     var obj = JSON.parse(content);
     var mapData = obj.map;
     return mapData;
+
 }
 
 
 function writeFlie() {
     var map_path = __dirname + "/map.json";
-    var content = JSON.stringify({map:mapData});
-    fs.writeFileSync(map_path,content,"utf-8");
+    var content = fs.writeFileSync(map_path,obj,"utf-8");
+    var obj = JSON.stringify({map:mapData});
 
 }
 
@@ -35,6 +36,7 @@ function createMapEditor() {
             tile.width = editor.GRID_PIXEL_WIDTH;
             tile.height = editor.GRID_PIXEL_HEIGHT;
             world.addChild(tile);
+            
 
 
             eventCore.register(tile, events.displayObjectRectHitTest, onTileClick);
@@ -44,8 +46,7 @@ function createMapEditor() {
 
 }
 
-
-
+ 
 function onTileClick(tile: editor.Tile) {
     
     var TileWalkable = mapData[tile.ownedRow][tile.ownedCol];
@@ -72,12 +73,12 @@ Button.width = 150;
 Button.height = 100;
 Button.color = "#0000FF";
 
-/*var t = new render.TextField();
+var t = new render.TextField();
 container.addChild(t);
 t.text = "save";
 t.x = 300;
 t.y = 200;
-*/
+
 
 function onButtonClick(Button:render.Rect) {
     writeFlie();
