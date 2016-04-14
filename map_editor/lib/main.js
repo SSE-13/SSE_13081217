@@ -9,8 +9,8 @@ function readFile() {
 }
 function writeFlie() {
     var map_path = __dirname + "/map.json";
-    var content = fs.writeFileSync(map_path, obj, "utf-8");
-    var obj = JSON.stringify({ map: mapData });
+    var content = JSON.stringify({ map: mapData });
+    fs.writeFileSync(map_path, content, "utf-8");
 }
 function createMapEditor() {
     var world = new editor.WorldMap();
@@ -52,17 +52,20 @@ Button.y = 100;
 Button.width = 150;
 Button.height = 100;
 Button.color = "#0000FF";
-var t = new render.TextField();
+/*var t = new render.TextField();
 container.addChild(t);
-t.text = "保存";
+t.text = "save";
 t.x = 300;
 t.y = 200;
-function onButtonClick(button) {
+*/
+function onButtonClick(Button) {
     writeFlie();
 }
 var mapData = readFile();
 var renderCore = new render.RenderCore();
 var eventCore = new events.EventCore();
 eventCore.init();
+eventCore.register(Button, events.displayObjectRectHitTest, onButtonClick);
 var editor = createMapEditor();
+container.addChild(editor);
 renderCore.start(editor);
