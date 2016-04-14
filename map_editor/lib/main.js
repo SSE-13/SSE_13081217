@@ -40,6 +40,8 @@ function onTileClick(tile) {
     else if (TileWalkable == 0) {
         TileWalkable = 1;
     }
+    mapData[tile.ownedRow][tile.ownedCol] = TileWalkable;
+    tile.setWalkable(TileWalkable);
     console.log(tile);
 }
 var mapData = readFile();
