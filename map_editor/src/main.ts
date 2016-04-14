@@ -71,7 +71,17 @@ Button.y = 100;
 Button.width = 150;
 Button.height = 100;
 Button.color = "#0000FF";
-    
+
+var t = new render.TextField();
+container.addChild(t);
+t.text = "保存";
+t.x = 300;
+t.y = 200;
+
+function onButtonClick(button:render.Rect) {
+    writeFlie();
+}
+
 
 
 
