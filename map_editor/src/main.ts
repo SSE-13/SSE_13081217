@@ -12,6 +12,13 @@ function readFile() {
 }
 
 
+function writeFlie() {
+    var map_path = __dirname + "/map.json";
+    var content = fs.writeFileSync(map_path,obj,"utf-8");
+    var obj = JSON.stringify({map:mapData});
+
+}
+
 function createMapEditor() {
     var world = new editor.WorldMap();
     var rows = mapData.length;
