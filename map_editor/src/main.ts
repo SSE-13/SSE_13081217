@@ -47,8 +47,18 @@ function createMapEditor() {
 
 
 function onTileClick(tile: editor.Tile) {
+    
+    var TileWalkable = mapData[tile.ownedRow][tile.ownedCol];
+    if(TileWalkable == 1){
+        TileWalkable = 0;
+    }
+    else if(TileWalkable == 0){
+        TileWalkable = 1;
+    }
     console.log(tile);
-}
+} 
+    
+
 
 
 var mapData = readFile();
